@@ -1,0 +1,11 @@
+[Unit]
+Description=Check for and install signed Berryaudio releases
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=pi
+EnvironmentFile=/etc/berryaudio-updates/config
+ExecStart=/usr/bin/python3 -I /usr/local/lib/berryaudio-update/update.py
+TimeoutStartSec=10min
